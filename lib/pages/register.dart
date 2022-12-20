@@ -14,15 +14,18 @@ class Register extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left:8.0),
                 child: Column(
-                  
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     GestureDetector(
                       onTap:() => Navigator.pop(context),
                       child: Container(
-                        
+                        decoration: BoxDecoration(
+                           color: Colors.orange.shade800,
+                           borderRadius: BorderRadius.circular(30),
+                        ),
                         width:50,
                         height:50,
-                        color: Colors.red,
+                       
                         child: Icon(Icons.arrow_back)),
                     ),
                     SizedBox(height: 10,),
