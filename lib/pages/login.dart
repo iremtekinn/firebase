@@ -12,12 +12,15 @@ class Login extends StatelessWidget {
           children: [
             //SizedBox(height: 50,),
             Container(
-              child: Row(
-                children: [
-                  Image.asset("assets/user.png"),
-                  
-                  Center(child: Text("Login",style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),)),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.only(left:15.0),
+                child: Row(
+                  children: [
+                    Image.asset("assets/user.png",width:80 ,height: 100,),
+                    SizedBox(width:40),
+                    Text("Login",style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),),
+                  ],
+                ),
               ),
              width: double.infinity,
              height: 200,

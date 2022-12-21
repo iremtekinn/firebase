@@ -20,7 +20,8 @@ class Register extends StatelessWidget {
                       onTap:() => Navigator.pop(context),
                       child: Container(
                         decoration: BoxDecoration(
-                           color: Colors.orange.shade800,
+                           //color: Colors.orange.shade800,
+                           color:Colors.green,
                            borderRadius: BorderRadius.circular(30),
                         ),
                         width:50,
@@ -45,7 +46,8 @@ class Register extends StatelessWidget {
              height: 200,
              
              decoration: BoxDecoration(
-              color: Colors.orange.shade800,
+             // color: Colors.orange.shade800,
+             color: Colors.green,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(40),
                 bottomLeft: Radius.circular(40)
