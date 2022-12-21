@@ -37,7 +37,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right:15,left:15),
               child: TextFormField(
-                keyboardType:TextInputType.emailAddress,
+                //keyboardType:TextInputType.emailAddress,
                 decoration: InputDecoration(
                   hintText: "email",
                   //suffixText:"email" ,
@@ -49,7 +49,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right:15,left:15),
               child: TextFormField(
-                keyboardType: TextInputType.text,
+                //keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: "password",
                   prefixIcon: Icon(Icons.remove_red_eye)
