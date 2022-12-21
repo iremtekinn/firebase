@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "389169853721",
+    "project_id": "firabaseus",
+    "storage_bucket": "firabaseus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389169853721:android:d351b0f3a27d60dab1c188",
+        "android_client_info": {
+          "package_name": "com.example.blog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389169853721-pdd1qft1f569g7hl2vsbd2q2gnjqnrhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTKqM1Qy2deS7G3rPSG7fYthoFE1nKoDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389169853721-pdd1qft1f569g7hl2vsbd2q2gnjqnrhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

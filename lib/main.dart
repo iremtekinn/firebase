@@ -1,8 +1,11 @@
+import 'package:blog/d.dart';
 import 'package:blog/pages/login.dart';
 import 'package:blog/pages/register.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await DependencyInjection.init();
   runApp(const MyApp());
 }
 
