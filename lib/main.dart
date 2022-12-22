@@ -1,4 +1,4 @@
-import 'package:blog/d.dart';
+import 'package:blog/di.dart';
 import 'package:blog/pages/login.dart';
 import 'package:blog/pages/register.dart';
 import 'package:flutter/material.dart';
