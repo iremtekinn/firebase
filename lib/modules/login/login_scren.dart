@@ -1,7 +1,12 @@
-import 'package:blog/pages/register.dart';
+import 'package:blog/modules/register/register_binding.dart';
+import 'package:blog/modules/register/register_screen.dart';
+import 'package:blog/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
+import 'login_controller.dart';
+
+class Login extends GetView<LoginController> {
   const Login({super.key});
 
   @override
@@ -37,6 +42,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right:15,left:15),
               child: TextFormField(
+              controller: controller.email,
                 //keyboardType:TextInputType.emailAddress,
                 decoration: InputDecoration(
                   hintText: "email",
@@ -49,6 +55,7 @@ class Login extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right:15,left:15),
               child: TextFormField(
+                controller: controller.password,
                 //keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: "password",
@@ -59,7 +66,7 @@ class Login extends StatelessWidget {
             SizedBox(height: 200,),
             GestureDetector(
               onTap:() {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => Register(),));
+                controller.auth.acount(controller.email.text,controller.password.text);
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -72,7 +79,23 @@ class Login extends StatelessWidget {
                 
                 child: Center(child: Text("Login",style: TextStyle(color: Colors.white,fontSize: 20),)),
               ),
-            )
+            ),
+            SizedBox(height: 15,),
+            GestureDetector(
+              onTap: () {
+                //Get.to(Register(),binding: RegisterBinding());
+            //  Get.toNamed(Routes.REGISTER);
+            Get.toNamed(Routes.REGISTER);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  //color: Colors.blue.shade400,
+                  color: Color(0xffEE7B23),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                height: 50,
+                width: 380,
+                child: Center(child: Text("sayfa geçişi/register",style: TextStyle(color: Colors.white,fontSize: 20),))))
           ],
         ),
       )
