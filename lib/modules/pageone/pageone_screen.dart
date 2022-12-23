@@ -1,4 +1,6 @@
+import 'package:blog/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PageOne extends StatelessWidget {
   const PageOne({super.key});
@@ -7,7 +9,9 @@ class PageOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
+          
       child: Column(
+        
         children: [
           Container(
             width: double.infinity,
@@ -92,6 +96,15 @@ class PageOne extends StatelessWidget {
           
         ],
       ),
-    ));
+    ),
+    floatingActionButton: FloatingActionButton(
+      backgroundColor: Colors.red,
+      child: Text("Create"),
+      onPressed: () {
+        Get.toNamed(Routes.PAGETWO);
+        
+      },)
+      ,
+    );
   }
 }
