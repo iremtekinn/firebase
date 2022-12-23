@@ -64,9 +64,11 @@ class Login extends GetView<LoginController> {
               ),
             ),
             SizedBox(height: 200,),
+            
             GestureDetector(
-              onTap:() {
-                controller.auth.acount(controller.email.text,controller.password.text);
+              onTap:() async {
+               await controller.auth.acount(controller.email.text,controller.password.text);
+                Get.toNamed(Routes.PAGEONE);
               },
               child: Container(
                 decoration: BoxDecoration(

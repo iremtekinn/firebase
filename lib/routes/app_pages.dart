@@ -1,10 +1,12 @@
 import 'package:blog/modules/login/login_binding.dart';
+import 'package:blog/modules/pages/pageone_screen.dart';
 import 'package:blog/modules/register/register_binding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
 import '../modules/login/login_scren.dart';
+import '../modules/pages/pageone_binding.dart';
 import '../modules/register/register_screen.dart';
 part 'app_routes.dart';
 class AppPages{
@@ -23,5 +25,14 @@ class AppPages{
      binding: LoginBinding(),
    
     ),
+   
+
+   GetPage(
+      name: Routes.PAGEONE, 
+    page: ()=>PageOne(),
+     binding: PageOneBinding(),
+   
+    ),
+    
   ];
 }
