@@ -62,7 +62,8 @@ class PageTwo extends StatelessWidget {
                  Padding(
                 padding: const EdgeInsets.only(left:10, right: 10, bottom: 20, top:20),
                 child: TextFormField(
-                  decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(vertical: 40,),
+                  maxLines: 3,
+                  decoration: InputDecoration(//contentPadding: EdgeInsets.symmetric(vertical: 40,),
                   filled: true,
                   fillColor: Color(0xFFF1EFF1),
                       border: OutlineInputBorder(
@@ -75,7 +76,8 @@ class PageTwo extends StatelessWidget {
                   Padding(
                 padding: const EdgeInsets.only(left:10, right: 10, bottom: 20, top:20),
                 child: TextFormField(
-                  decoration: InputDecoration(contentPadding: EdgeInsets.symmetric(vertical: 150),
+                  maxLines: 20,
+                  decoration: InputDecoration(//contentPadding: EdgeInsets.symmetric(vertical: 150),
                   filled: true,
                   fillColor: Color(0xFFF1EFF1),
                       border: OutlineInputBorder(
