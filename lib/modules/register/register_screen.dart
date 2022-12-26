@@ -135,7 +135,7 @@ class Register extends GetView<RegisterController> {
               ),
               height: 50,
               width: 380,
-                child: Center(child: Text("sayfa geçişi/login", style: TextStyle(color: Colors.white, fontSize: 20),))))
+                child: Center(child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 20),))))
         ],
       ),
     ));

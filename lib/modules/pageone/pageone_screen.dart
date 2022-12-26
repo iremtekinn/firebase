@@ -8,7 +8,9 @@ class PageOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF1EFF1),
         body: SingleChildScrollView(
+          
           
       child: Column(
         
@@ -37,7 +39,7 @@ class PageOne extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 730,
-            color: Colors.blue,
+            color: Color(0xFFF1EFF1),
             child: ListView.builder(
               itemCount: 4,
               scrollDirection: Axis.vertical,
@@ -45,9 +47,24 @@ class PageOne extends StatelessWidget {
                 return Column(
                   children: [
                     Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+      BoxShadow(
+        color: Colors.grey,
+        blurRadius: 15.0, // soften the shadow
+        spreadRadius: 5.0, //extend the shadow
+        offset: Offset(
+          5.0, // Move to right 5  horizontally
+          5.0, // Move to bottom 5 Vertically
+        ),
+      )
+    ],
+                     color: Color(0xFFF1EFF1),
+                     borderRadius: BorderRadius.circular(15),
+                      ),
                       margin: EdgeInsets.only(bottom: 10),
                       height: 180,
-                      color: Colors.pink,
+                      
                       //width: double.infinity,
                       child: Row(
                         children: [
@@ -63,18 +80,25 @@ class PageOne extends StatelessWidget {
                             ),
                           ),
                           Container(
-                              color: Colors.green,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF1EFF1),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                              
                               height: 155,
                               width: 320,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "What is the best way to manage state in flutter",
-                                    maxLines: 2,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 17,
+                                  Padding(
+                                    padding: const EdgeInsets.only(top:8.0),
+                                    child: Text(
+                                      "What is the best way to manage state in flutter",
+                                      maxLines: 2,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17,
+                                      ),
                                     ),
                                   ),
                                   Text("Emre Varal"),
@@ -97,14 +121,22 @@ class PageOne extends StatelessWidget {
         ],
       ),
     ),
-    floatingActionButton: FloatingActionButton(
-      backgroundColor: Colors.red,
-      child: Text("Create"),
-      onPressed: () {
-        Get.toNamed(Routes.PAGETWO);
+    // floatingActionButton: FloatingActionButton(
+    //   backgroundColor: Color(0xFFFFA41B),
+    //   child: Text("Create"),
+    //   onPressed: () {
+    //     Get.toNamed(Routes.PAGETWO);
         
-      },)
-      ,
+    //   },),
+    floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Get.toNamed(Routes.PAGETWO);
+        },
+        label: const Text('Create'),
+        icon: const Icon(Icons.add),
+        backgroundColor: Color(0xFFFFA41B),
+      ),
+      
     );
   }
 }

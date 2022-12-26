@@ -97,7 +97,7 @@ class Login extends GetView<LoginController> {
                 ),
                 height: 50,
                 width: 380,
-                child: Center(child: Text("sayfa geçişi/register",style: TextStyle(color: Colors.white,fontSize: 20),))))
+                child: Center(child: Text("Register",style: TextStyle(color: Colors.white,fontSize: 20),))))
           ],
         ),
       )
