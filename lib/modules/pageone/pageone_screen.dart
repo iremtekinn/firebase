@@ -1,8 +1,10 @@
+import 'package:blog/modules/pageone/pageone_controller.dart';
 import 'package:blog/routes/app_pages.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class PageOne extends StatelessWidget {
+class PageOne extends GetView<PageOneController> {
   const PageOne({super.key});
 
   @override
@@ -40,81 +42,92 @@ class PageOne extends StatelessWidget {
             width: double.infinity,
             height: 730,
             color: Color(0xFFF1EFF1),
-            child: ListView.builder(
-              itemCount: 4,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-      BoxShadow(
-        color: Colors.grey,
-        blurRadius: 15.0, // soften the shadow
-        spreadRadius: 5.0, //extend the shadow
-        offset: Offset(
-          5.0, // Move to right 5  horizontally
-          5.0, // Move to bottom 5 Vertically
-        ),
-      )
-    ],
-                     color: Color(0xFFF1EFF1),
-                     borderRadius: BorderRadius.circular(15),
-                      ),
-                      margin: EdgeInsets.only(bottom: 10),
-                      height: 180,
-                      
-                      //width: double.infinity,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              width: 50,
-                              height: 50,
-                              child: Image.asset("assets/man.png"),
+            child: StreamBuilder(
+              stream:controller.db.readBlog(),
+              builder: (context, snapshot) {
+                return !snapshot.hasData
+                ? CircularProgressIndicator()
+                :ListView.builder(
+                itemCount: snapshot.data!.docs.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) {
+                  DocumentSnapshot myBlog=
+                  snapshot.data!.docs[index];
+                  return Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 15.0, // soften the shadow
+                    spreadRadius: 5.0, //extend the shadow
+                    offset: Offset(
+                      5.0, // Move to right 5  horizontally
+                      5.0, // Move to bottom 5 Vertically
+                    ),
+                  )
+                ],
+                       color: Color(0xFFF1EFF1),
+                       borderRadius: BorderRadius.circular(15),
+                        ),
+                        margin: EdgeInsets.only(bottom: 10),
+                        height: 180,
+                        
+                        //width: double.infinity,
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                child: Image.asset("assets/man.png"),
+                                decoration: BoxDecoration(
+                                    color: Colors.yellow,
+                                    borderRadius: BorderRadius.circular(30)),
+                              ),
+                            ),
+                            Container(
                               decoration: BoxDecoration(
-                                  color: Colors.yellow,
-                                  borderRadius: BorderRadius.circular(30)),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF1EFF1),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                              
-                              height: 155,
-                              width: 320,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top:8.0),
-                                    child: Text(
-                                      "What is the best way to manage state in flutter",
-                                      maxLines: 2,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 17,
+                                color: Color(0xFFF1EFF1),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                                
+                                height: 155,
+                                width: 320,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top:8.0),
+                                      child: Text(
+                                        "What is the best way to manage state in flutter",
+                                        maxLines: 2,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 17,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Text("Emre Varal"),
-                                  SizedBox(height: 10,),
-                                  Text(
-                                    "Lorem ipsum dolar sit amet, consectetur adipisicing elit,sed da eiusmad tempar.",
-                                    maxLines: 2,
-                                  )
-                                ],
-                              ))
-                        ],
-                      ),
-                    )
-                  ],
-                );
+                                    Text("Emre Varal"),
+                                    SizedBox(height: 10,),
+                                    Text(
+                                      "Lorem ipsum dolar sit amet, consectetur adipisicing elit,sed da eiusmad tempar.",
+                                      maxLines: 2,
+                                    )
+                                  ],
+                                ))
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                },
+              );
               },
+              //child: 
+              
             ),
           ),
           

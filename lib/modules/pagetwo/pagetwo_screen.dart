@@ -1,10 +1,11 @@
+import 'package:blog/modules/pagetwo/pagetwo_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/app_pages.dart';
 
-class PageTwo extends StatelessWidget {
+class PageTwo extends GetView<PageTwoController> {
   const PageTwo({super.key});
 
   @override
@@ -62,6 +63,7 @@ class PageTwo extends StatelessWidget {
                  Padding(
                 padding: const EdgeInsets.only(left:10, right: 10, bottom: 20, top:20),
                 child: TextFormField(
+                  controller: controller.topic,
                   maxLines: 3,
                   decoration: InputDecoration(//contentPadding: EdgeInsets.symmetric(vertical: 40,),
                   filled: true,
@@ -76,6 +78,7 @@ class PageTwo extends StatelessWidget {
                   Padding(
                 padding: const EdgeInsets.only(left:10, right: 10, bottom: 20, top:20),
                 child: TextFormField(
+                  controller: controller.content,
                   maxLines: 20,
                   decoration: InputDecoration(//contentPadding: EdgeInsets.symmetric(vertical: 150),
                   filled: true,
@@ -101,6 +104,8 @@ class PageTwo extends StatelessWidget {
                                   child: GestureDetector(
                                     onTap: () {
                                       
+                                      controller.db.writeBlog(controller.topic.text, controller.content.text);
+                                      Get.toNamed(Routes.PAGEONE);
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(                 
@@ -111,6 +116,7 @@ class PageTwo extends StatelessWidget {
                                                              height:50,
                                                              
                                                              child:Center(child: Text("POST",style: TextStyle(color:Color(0xFFF1EFF1),fontSize: 18),))
+                                                             
                                                            ),
                                   ),
                                 ),
