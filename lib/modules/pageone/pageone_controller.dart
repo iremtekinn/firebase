@@ -1,4 +1,5 @@
 
+import 'package:blog/shared/services/analytics_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -12,6 +13,7 @@ class PageOneController extends GetxController{
 
   List<String> docIDs = []; 
   FirestoreService db = FirestoreService();
+  AnalyticsService analyticsService =Get.find();
   }
 
   

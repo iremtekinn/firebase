@@ -43,10 +43,12 @@ class PageOne extends GetView<PageOneController> {
                     "Home",
                     style: TextStyle(fontWeight: FontWeight.w500,color: Color(0xFFF1EFF1,),fontSize: 18),
                   ),
+                 
                   Icon(
                     Icons.search,
                     color: Color(0xFFF1EFF1,),
                   ),
+                  
                 ],
               ),
             ),
@@ -141,12 +143,12 @@ class PageOne extends GetView<PageOneController> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                            color: Color(0xFF035AA6),
-                                           borderRadius: BorderRadius.circular(15)
+                                           borderRadius: BorderRadius.circular(30)
                                         ),
-                                        width: 90,
-                                        height: 35,
+                                        width: 30,
+                                        height: 30,
                                         
-                                        child: Center(child: Text("DELETE",style: TextStyle(color:Color(0xFFF1EFF1),fontSize: 16),)),
+                                        child: Center(child: Icon(Icons.remove,color:Color(0xFFF1EFF1,))),
                                       ))
                                   ],
                                 ))
@@ -179,6 +181,7 @@ class PageOne extends GetView<PageOneController> {
     floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Get.toNamed(Routes.PAGETWO);
+          controller.analyticsService.logEvent();
         },
         label: const Text('Create'),
         icon: const Icon(Icons.add),
