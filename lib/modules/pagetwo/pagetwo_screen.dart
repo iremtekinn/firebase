@@ -46,17 +46,20 @@ class PageTwo extends GetView<PageTwoController> {
 )
 
                   ),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Get.toNamed(Routes.PAGEONE);
-                        },
-                        child: Icon(Icons.arrow_back)),
-                      SizedBox(width:10),
-                      Text("POST A QUESTION",style: TextStyle(color:Color(0xFFF1EFF1,),fontSize: 18),),
-
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(Routes.PAGEONE);
+                          },
+                          child: Icon(Icons.arrow_back)),
+                        SizedBox(width:10),
+                        Text("POST A QUESTION",style: TextStyle(color:Color(0xFFF1EFF1,),fontSize: 18),),
+                  
+                      ],
+                    ),
                   ),
                 ),
                    

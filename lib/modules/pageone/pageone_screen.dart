@@ -10,29 +10,42 @@ class PageOne extends GetView<PageOneController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1EFF1),
+      //backgroundColor: Color(0xFFF1EFF1),
         body: SingleChildScrollView(
           
           
-      child: Column(
+      child: Container(
+        width:double.infinity,
+             height: 900,
+             decoration: BoxDecoration(
+         image:DecorationImage(image: AssetImage("assets/bg.png"),fit: BoxFit.cover)
+             ),
+            child: Column(
         
         children: [
           Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+  colors: [Color(0xFF46A0AE), Color(0xFF00FFCB)],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+)
+            ),
             width: double.infinity,
             height: 70,
             //color:Colors.red,
             child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Home",
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.w500,color: Color(0xFFF1EFF1,),fontSize: 18),
                   ),
                   Icon(
                     Icons.search,
-                    color: Color(0xff005FEE),
+                    color: Color(0xFFF1EFF1,),
                   ),
                 ],
               ),
@@ -41,7 +54,7 @@ class PageOne extends GetView<PageOneController> {
           Container(
             width: double.infinity,
             height: 730,
-            color: Color(0xFFF1EFF1),
+           // color: Color(0xFFF1EFF1),
             child: StreamBuilder(
               stream:controller.db.readBlog(),
               builder: (context, snapshot) {
@@ -102,7 +115,8 @@ class PageOne extends GetView<PageOneController> {
                                     Padding(
                                       padding: const EdgeInsets.only(top:8.0),
                                       child: Text(
-                                        "What is the best way to manage state in flutter",
+                                        //"What is the best way to manage state in flutter",
+                                        "${myBlog["topic"]}",
                                         maxLines: 2,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
@@ -113,9 +127,27 @@ class PageOne extends GetView<PageOneController> {
                                     Text("Emre Varal"),
                                     SizedBox(height: 10,),
                                     Text(
-                                      "Lorem ipsum dolar sit amet, consectetur adipisicing elit,sed da eiusmad tempar.",
+                                     // "Lorem ipsum dolar sit amet, consectetur adipisicing elit,sed da eiusmad tempar.",
+                                     "${myBlog["content"]}",
                                       maxLines: 2,
-                                    )
+                                    ),
+                                    SizedBox(height: 20,),
+                                    GestureDetector(
+                                      onTap: () {
+                                         controller.db.deleteBlog(
+                                                      snapshot.data!.docs[index]
+                                                          .id);
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                           color: Color(0xFF035AA6),
+                                           borderRadius: BorderRadius.circular(15)
+                                        ),
+                                        width: 90,
+                                        height: 35,
+                                        
+                                        child: Center(child: Text("DELETE",style: TextStyle(color:Color(0xFFF1EFF1),fontSize: 16),)),
+                                      ))
                                   ],
                                 ))
                           ],
@@ -133,6 +165,9 @@ class PageOne extends GetView<PageOneController> {
           
         ],
       ),
+      )
+      
+      
     ),
     // floatingActionButton: FloatingActionButton(
     //   backgroundColor: Color(0xFFFFA41B),
